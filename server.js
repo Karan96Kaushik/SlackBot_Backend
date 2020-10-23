@@ -25,6 +25,7 @@ expr.post('/echo', function (req, res) {
 
 expr.post('/slackslash', async function (req, res) {
 	console.log(req.query)
+	console.log(req)
 
 	switch (req.query.command) {
 		case "/dt":
