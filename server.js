@@ -1,3 +1,4 @@
+require("dotenv").config()
 const express = require('express')
 const expr = express()
 const bodyParser = require('body-parser');	// HTTP Request Parser
@@ -18,44 +19,49 @@ expr.get('/hello', function (req, res) {
 
 expr.post('/echo', function (req, res) {
 	var body = req.body;
-
 	res.json(body);
 })
 
 
 expr.post('/slackslash', async function (req, res) {
-	console.log(req.body)
-
 	switch (req.body.command) {
 		case "/dt":
 			desktimeMessage().then(resp => {
-				console.log(resp)
 				res.send(resp)
 			})
 			break;
 		case "/test":
 			res.send("Server Test Successful - " + new Date())
-			// console.log()
 			break;
 
 		default:
 			res.send("Server Test Successful - " + new Date())
 			break;
 	}
+})
 
-	// res.send("OK")
+
+expr.get('/slackslash', async function (req, res) {
+	switch (req.query.command) {
+		case "/dt":
+			desktimeMessage().then(resp => {
+				res.send(resp)
+			})
+			break;
+		case "/test":
+			res.send("Server Test Successful - " + new Date())
+			break;
+		default:
+			res.send("Server Test Successful - " + new Date())
+			break;
+	}
 })
 
 expr.get('/rt/:arg1', async function (req, res) {
 	res.send(req.params.arg1)
-
-	console.log(req.body)
-
 	switch (req.params.arg1) {
 		case "desktime":
-			console.log()
 			break;
-
 		default:
 			break;
 	}
@@ -67,5 +73,5 @@ var host = "0.0.0.0"
 var server = expr.listen(port, host);
 
 server.on('listening', function () {
-	console.log("server is listening")
+	console.log("Server is up")
 })
