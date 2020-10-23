@@ -23,7 +23,7 @@ expr.post('/echo', function (req, res) {
 })
 
 
-expr.get('/slackslash', async function (req, res) {
+expr.post('/slackslash', async function (req, res) {
 	console.log(req.query)
 
 	switch (req.query.command) {
