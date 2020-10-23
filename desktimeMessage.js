@@ -24,8 +24,8 @@ var desktimeMessage = async () => {
 					{
 						"type": "mrkdwn",
 						"text": `*Status*					 		: ${resp.data.isOnline ? ":heavy_check_mark:" : ":x:"}` + '\n' +
-							`*At Work Time*				: ${parseInt((resp.data.atWorkTime / 3600))}:${parseInt((resp.data.atWorkTime % 3600) / 60)}:${parseInt((resp.data.atWorkTime % 60))}` + '\n' +
-							`*Productive Time*			: ${parseInt((resp.data.productiveTime / 3600))}:${parseInt((resp.data.productiveTime % 3600) / 60)}:${parseInt((resp.data.productiveTime % 60))}`
+								`*At Work Time*				: ${parseInt((resp.data.atWorkTime / 3600))}:${parseInt((resp.data.atWorkTime % 3600) / 60)}:${parseInt((resp.data.atWorkTime % 60))}` + '\n' +
+								`*Productive Time*			: ${parseInt((resp.data.productiveTime / 3600))}:${parseInt((resp.data.productiveTime % 3600) / 60)}:${parseInt((resp.data.productiveTime % 60))}`
 					}
 				]
 			}

@@ -3,6 +3,7 @@ const express = require('express')
 const expr = express()
 const bodyParser = require('body-parser');	// HTTP Request Parser
 const fs = require('fs');
+const axios = require('axios')
 const desktimeMessage = require('./desktimeMessage');
 
 expr.use(bodyParser.urlencoded({ extended: false }));
@@ -55,6 +56,10 @@ expr.get('/slackslash', async function (req, res) {
 			res.send("Server Test Successful - " + new Date())
 			break;
 	}
+})
+
+expr.post('/slackpost', async function (req, res) {
+	axios.post(process.env.slackwebhook, req.body).then(() => {res.send("Done")})
 })
 
 expr.get('/rt/:arg1', async function (req, res) {
