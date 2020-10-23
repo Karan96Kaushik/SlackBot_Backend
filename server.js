@@ -39,6 +39,7 @@ expr.get('/slackslash', async function (req, res) {
 			break;
 
 		default:
+			res.send("Server Test Successful - " + new Date())
 			break;
 	}
 
