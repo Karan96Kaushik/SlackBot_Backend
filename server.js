@@ -24,10 +24,9 @@ expr.post('/echo', function (req, res) {
 
 
 expr.post('/slackslash', async function (req, res) {
-	console.log(req.query)
-	console.log(req)
+	console.log(req.body)
 
-	switch (req.query.command) {
+	switch (req.body.command) {
 		case "/dt":
 			desktimeMessage().then(resp => {
 				console.log(resp)
